@@ -30,7 +30,7 @@ def day15_v1(input, turns = 2020):
     return last
 
 """
-Version 2.
+Version 2. Runs roughly twice as fast as version 1 (clearer logic + caching)
 """
 def day15_v2(input, turns = 2020):
     turn = 1
