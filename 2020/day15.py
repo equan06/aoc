@@ -64,5 +64,6 @@ def day15_v2(input, turns = 2020):
     return last
 
 if __name__ == "__main__":
+    input = load_input()
     print(day15_v2(input, 2020))
     print(day15_v2(input, 30000000))
