@@ -5,20 +5,12 @@ from collections import defaultdict
 def load_input(test = False):
     path = "testinput_day16.txt" if test else "input_day16.txt"
     with open(path) as f:
-        return [x for x in f.read().splitlines()]
+        return f.read().strip()
 
 def parse(input):
-    n = []
-    for i, row in enumerate(input):
-        if row == "":
-            n.append(i)
-        if len(n) == 2:
-            break
-    rules = {re.match(r'[\w\s]+', row).group(0):
-        tuple(map(int, re.findall(r'\d+', row)))
-            for row in input[:n[0]]}
-    my_ticket = tuple(map(int, re.findall(r'\d+', input[n[0] + 2])))
-    tickets = np.array([list(map(int, re.findall(r'\d+', row))) for row in input[n[1] + 2:]])
+    "Shoutout to /u/Attitude-Certain for the clean regex. Finally getting around to using capturing groups..."
+    rules = {rule: tuple(map(int, [a, b, c, d])) for rule, a, b, c, d in re.findall(r'^([\w\s]+):\s(\d+)-(\d+)\sor\s(\d+)-(\d+)$', input, flags=re.MULTILINE)}
+    my_ticket, *tickets = np.array([tuple(map(int, t.split(","))) for t in re.findall(r'^([\d,]+)$', input, flags=re.MULTILINE)])
     return rules, my_ticket, tickets
 
 def day16_pt1(input):
