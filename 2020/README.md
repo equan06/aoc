@@ -8,7 +8,7 @@ These are my solutions to AoC 2020, albeit a month or two late!
 * **Day 10:** There's a more efficient solution where you start from 0 and scan upwards (each problem relies on the past 3 subproblems), whereas my formulation starts from the top and goes down, but it's the same in principle
 * **Day 11:** Simple brute force - maybe revisit some other time
 * **Day 18:** Really happy with my part 2 solution, as it basically just uses a 1 line of code difference from part 1. 
-* **Day 19:** Turns out bruteforcing infinitely many messages will NOT work for part 2 - so I'll have to rebuild a solution that basically parses an individual message using the rules.
+* **Day 19:** Part 2 was easier than I thought, albeit it relies on manually scanning the input and writing out a few cases instead of solving the problem generally. Implemented another more general solution after postmortem.
 
 
 
