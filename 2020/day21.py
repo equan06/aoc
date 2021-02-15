@@ -20,7 +20,7 @@ def day21_pt1(foods):
     """
     ingreds, allergy = parse(foods)
     temp = set()
-    for a in allergy:
+    for a in allergy: # tempting to do this in one line, but really not readable...
         temp = temp.union(reduce(set.intersection, (set(f[0]) for f in foods if a in f[1])))
     not_contains = ingreds.difference(temp)
     return sum(len(not_contains.intersection(f[0])) for f in foods)
