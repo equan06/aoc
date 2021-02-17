@@ -1,4 +1,3 @@
-import re
 def load_input():
     with open("input_day22.txt") as f:
         res = [x for x in f.read().splitlines()]
