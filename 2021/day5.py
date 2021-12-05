@@ -21,7 +21,7 @@ def day5_sol1(input):
             for x in range(x1, x2 + xsign, xsign):
                 points[(x, y1)] += 1
 
-    return sum(1 for count in points.values() if count >= 2)
+    return sum(count >= 2 for count in points.values())
         
 def day5_sol2(input):
     points = defaultdict(int)
@@ -42,7 +42,7 @@ def day5_sol2(input):
             for x, y in zip(range(x1, x2 + xsign, xsign), range(y1, y2 + ysign, ysign)):
                 points[(x, y)] += 1
                     
-    return sum(1 for count in points.values() if count >= 2)
+    return sum(count >= 2 for count in points.values())
 
 
 if __name__ == '__main__':
