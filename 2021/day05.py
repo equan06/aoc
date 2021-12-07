@@ -4,7 +4,7 @@ import re
 
 
 def load_data_regex():
-    with open("input_day5.txt") as f:
+    with open("input_day05.txt") as f:
         return [list(map(int, re.findall(r'\d+', x))) for x in f.read().splitlines() for y in x.split("\r\n")]
 
 def day5_sol1(input):

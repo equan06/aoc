@@ -2,12 +2,12 @@ import numpy as np
 import re
 
 def load_data():
-    with open("input_day3.txt") as f:
+    with open("input_day03.txt") as f:
         return [list(map(int, x)) for x in f.read().splitlines()]
 
 # gotta practice some regex...
 def load_data_regex():
-    with open("input_day2.txt") as f:
+    with open("input_day02.txt") as f:
         return [(a, int(b)) for a, b in re.findall(r'^(\w+)\s(\d+)$', f.read().strip(), flags=re.MULTILINE)]
 
 def day3_sol1(input):

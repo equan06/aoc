@@ -4,7 +4,7 @@ from functools import reduce
 
 # first attempt - ugly, but it worked...
 def load_data():
-    with open("input_day4.txt") as f:
+    with open("input_day04.txt") as f:
         arr = [re.sub(r'\s+', ',', re.sub(r'^\s+', '', y, flags=re.MULTILINE)).split(",") for x in f.read().splitlines() for y in x.split("\r\n") ]
         input = list(map(int, arr[0]))
         print(arr)
@@ -25,7 +25,7 @@ def load_data():
 
 # going back and practicing some regex
 def load_data_regex():
-    with open("input_day4.txt") as f:
+    with open("input_day04.txt") as f:
         arr = [list(map(int, re.findall(r'\d+', x))) for x in f.read().splitlines() for y in x.split("\r\n")]
         input = arr[0]
         boards = []

@@ -8,7 +8,7 @@ NEW_INTERVAL = 8
 REPEAT_INTERVAL = 6
 
 def load_data():
-    with open("input_day6.txt") as f:
+    with open("input_day06.txt") as f:
         line = f.read().splitlines()[0]
         return list(map(int, line.split(",")))
 

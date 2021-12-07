@@ -2,7 +2,7 @@ import numpy as np
 from timeit import default_timer as timer
 
 def load_data():
-    with open("input_day1.txt") as f:
+    with open("input_day01.txt") as f:
         return [int(x) for x in f.read().splitlines()]
 
 def day1_sol1(input):

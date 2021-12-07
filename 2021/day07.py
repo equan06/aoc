@@ -1,7 +1,7 @@
 import numpy as np
 
 def load_data():
-    with open("input_day7.txt") as f:
+    with open("input_day07.txt") as f:
         return list(map(int, f.read().split(",")))
 
 def day7_sol1(input):
