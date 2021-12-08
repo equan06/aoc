@@ -4,14 +4,13 @@ def load_data():
     with open("input_day08.txt") as f:
         return [re.findall(r"\w+", x) for x in f.read().splitlines()]
 
-
 def day8_sol1(input):
     count = 0
     known_length = [2, 4, 3, 7]
     for line in input:
         output = line[-4:]
-        for pattern in output:
-            if len(pattern) in known_length:
+        for p in output:
+            if len(p) in known_length:
                 count += 1
     return count
 
@@ -20,11 +19,11 @@ def day8_sol2(input):
     for line in input:
         patterns, output = line[:10], line[10:]
         patterns_to_digit = solve(patterns)
-        total_sum += int("".join([str(patterns_to_digit["".join(sorted(pattern))]) for pattern in output]))
+        total_sum += int("".join([str(patterns_to_digit["".join(sorted(p))]) for p in output]))
     return total_sum
 
 def solve(patterns):
-    """Deterministically solve the patterns, and return a mapping of the pattern (chars sorted) to its digit.
+    """Deterministically solve the patterns, and return a mapping of the p (chars sorted) to its digit.
     """
     map = dict()
     for p in patterns:
@@ -38,36 +37,36 @@ def solve(patterns):
             map[8] = p
 
     # solve for THREE
-    for pattern in patterns:
-        if len(pattern) == 5 and len(set(pattern).intersection(set(map[7]))) == 3:
-            map[3] = pattern
+    for p in patterns:
+        if len(p) == 5 and len(set(p).intersection(set(map[7]))) == 3:
+            map[3] = p
             break
     
-    for pattern in patterns:
-        if len(pattern) == 6 and len(set(pattern).intersection(set(map[1]))) == 1:
-            map[6] = pattern
+    for p in patterns:
+        if len(p) == 6 and len(set(p).intersection(set(map[1]))) == 1:
+            map[6] = p
             break
 
-    for pattern in patterns:
-        if len(pattern) == 6 and len(set(pattern).intersection(set(map[4]))) == 4:
-            map[9] = pattern
+    for p in patterns:
+        if len(p) == 6 and len(set(p).intersection(set(map[4]))) == 4:
+            map[9] = p
 
-    for pattern in patterns:
-        if (len(pattern) == 5) and len(set(pattern).intersection(set(map[6]))) == 5:
-            map[5] = pattern
+    for p in patterns:
+        if len(p) == 5 and len(set(p).intersection(set(map[6]))) == 5:
+            map[5] = p
             break
 
-    for pattern in patterns:
-        if len(pattern) == 6 and pattern not in map.values():
-            map[0] = pattern
+    for p in patterns:
+        if len(p) == 6 and p not in map.values():
+            map[0] = p
             break
 
-    for pattern in patterns:
-        if pattern not in map.values():
-            map[2] = pattern
+    for p in patterns:
+        if p not in map.values():
+            map[2] = p
             break
     
-    return {"".join(sorted(pattern)): digit for digit, pattern in map.items()}
+    return {"".join(sorted(p)): digit for digit, p in map.items()}
 
 if __name__ == '__main__':
     input = load_data()
