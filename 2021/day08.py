@@ -36,35 +36,17 @@ def solve(patterns):
         elif len(p) == 7:
             map[8] = p
 
-    # solve for THREE
-    for p in patterns:
-        if len(p) == 5 and len(set(p).intersection(set(map[7]))) == 3:
-            map[3] = p
-            break
+    map[3] = next(p for p in patterns if len(p) == 5 and len(set(p) & set(map[7])) == 3)
     
-    for p in patterns:
-        if len(p) == 6 and len(set(p).intersection(set(map[1]))) == 1:
-            map[6] = p
-            break
+    map[6] = next(p for p in patterns if len(p) == 6 and len(set(p) & set(map[1])) == 1)
 
-    for p in patterns:
-        if len(p) == 6 and len(set(p).intersection(set(map[4]))) == 4:
-            map[9] = p
+    map[9] = next(p for p in patterns if len(p) == 6 and len(set(p) & set(map[4])) == 4)
 
-    for p in patterns:
-        if len(p) == 5 and len(set(p).intersection(set(map[6]))) == 5:
-            map[5] = p
-            break
+    map[5] = next(p for p in patterns if len(p) == 5 and len(set(p) & set(map[6])) == 5)
 
-    for p in patterns:
-        if len(p) == 6 and p not in map.values():
-            map[0] = p
-            break
+    map[0] = next(p for p in patterns if len(p) == 6 and p not in map.values())
 
-    for p in patterns:
-        if p not in map.values():
-            map[2] = p
-            break
+    map[2] = next(p for p in patterns if p not in map.values())
     
     return {"".join(sorted(p)): digit for digit, p in map.items()}
 
