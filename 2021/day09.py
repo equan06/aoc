@@ -39,18 +39,18 @@ def dfs(input, idx, idy, prev):
 def validate(input, idx, idy):
     """Check whether the current point is a low point (all adjacent, nondiagonal neighbors are strictly greater than the current)
     """
-    u, d, l, r = [True for _ in range(4)]
+    a, b, c, d = [True for _ in range(4)]
     lenx, leny = len(input[0]), len(input)
     val = input[idy][idx]
-    if (idx > 0):
-        u = val < input[idy][idx - 1]
-    if (idx < lenx - 1):
-        d = val < input[idy][idx + 1]
-    if (idy > 0):
-        l = val < input[idy - 1][idx]
-    if (idy < leny - 1):
-        r = val < input[idy + 1][idx]
-    return u and d and l and r
+    if idx > 0:
+        a= val < input[idy][idx - 1]
+    if idx + 1 < lenx:
+        b = val < input[idy][idx + 1]
+    if idy > 0:
+        c = val < input[idy - 1][idx]
+    if idy + 1 < leny:
+        d = val < input[idy + 1][idx]
+    return a and b and c and d
 
 if __name__ == "__main__":
     input = load_data()
