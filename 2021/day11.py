@@ -35,15 +35,14 @@ def day11_sol2(input):
                     flash(idx, idy, input, flashed)
         for (x, y) in flashed:
             input[y][x] = 0
-        if len(flashed) == 100:
-            return i + 1
         i += 1
+        if len(flashed) == 100: return i
 
 def flash(idx, idy, input, flashed):
     for i in range(-1, 2):
         for j in range(-1, 2):
             x, y = idx + i, idy + j
-            if (x == idx and y == idy): continue
+            if x == idx and y == idy: continue
             if x < 0 or y < 0 or x == len(input[0]) or y == len(input): continue
             input[y][x] = input[y][x] + 1
             if (input[y][x] > 9 and (x, y) not in flashed):

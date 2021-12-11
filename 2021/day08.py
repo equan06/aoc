@@ -50,14 +50,7 @@ def solve(patterns):
     
     return {"".join(sorted(p)): digit for digit, p in map.items()}
 
-from collections import defaultdict
-
-def brute_force():
-    # TODO
-    return
-
 if __name__ == '__main__':
     input = load_data()
     print(day8_sol1(input))
     print(day8_sol2(input))
-    print(p(input))
