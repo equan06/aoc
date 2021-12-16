@@ -43,7 +43,6 @@ class minpq:
     def __len__(this):
         return len(this.pq)
 
-
 def day15_sol1(input):
     return sp(input)
 
@@ -108,5 +107,3 @@ if __name__ == "__main__":
     input = load_data(file)
     print(day15_sol1(input))
     print(day15_sol2(input))
-
-    
