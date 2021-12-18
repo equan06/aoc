@@ -66,8 +66,8 @@ def parse_packet(bin, nums):
     nums.append(version)
     if type_id == '100': # 4 = literal
         nums = []
-        read = True
         literal = ""
+        read = True
         while read:
             if bin[i] == '0': read = False
             literal += bin[i+1:i+5]
@@ -83,7 +83,7 @@ def parse_packet(bin, nums):
             pck_end = i + total_len
             # parse the immediate subpackets
             while i < pck_end:
-                pck_len, pck = parse_packet(bin[i:pck_end], nums)
+                pck_len, pck = parse_packet(bin[i:], nums)
                 sub_packets.append(pck)
                 i += pck_len
         else:
